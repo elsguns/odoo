@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="product_pos_category_tree_view" model="ir.ui.view">
+            <field name="model">pos.category</field>
+            <field name="inherit_id" ref="point_of_sale.product_pos_category_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='display_name']" position="after">
+                    <field name="product_category_id"/>
+                    <field name="product_public_category_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_pos_category_form_view" model="ir.ui.view">
+            <field name="model">pos.category</field>
+            <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="product_category_id"/>
+                    <field name="product_public_category_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
