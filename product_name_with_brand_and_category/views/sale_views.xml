@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='sequence']"
+                       position="after">
+                    <field name="product_brand_id_filter"/>
+                    <field name="pos_categ_id_filter"/>
+                </xpath>
+                <!--xpath expr="//field[@name='product_template_id']" position="attributes">
+                    <attribute name="domain">[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id), '|', ('product_brand_id', '=', False), ('product_brand_id', '=', product_brand_id_filter), '|', ('pos_categ_id', '=', False), ('pos_categ_id', '=', pos_categ_id_filter)]
+                    </attribute>
+                </xpath-->
+            </field>
+        </record>
+    </data>
+</odoo>
