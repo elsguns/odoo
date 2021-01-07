@@ -19,6 +19,15 @@
               parent="sale.prod_config_main"
               groups="product.group_product_variant"
               sequence="2"/>
+    <record id="search_product_template_attribute_line" model="ir.ui.view">
+        <field name="model">product.template.attribute.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_tmpl_id"/>
+                <field name="attribute_id"/>
+            </search>
+        </field>
+    </record>
     <record id="view_product_template_attribute_line" model="ir.ui.view">
         <field name="model">product.template.attribute.line</field>
         <field name="arch" type="xml">
@@ -32,6 +41,7 @@
         <field name="name">Product Template Attribute Lines</field>
         <field name="res_model">product.template.attribute.line</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_product_template_attribute_line"/>
         <field name="view_id" ref="view_product_template_attribute_line"/>
     </record>
     <menuitem id="menu_product_template_attribute_line_action"
@@ -39,6 +49,16 @@
               parent="sale.prod_config_main"
               groups="product.group_product_variant"
               sequence="3"/>
+    <record id="search_product_template_attribute_value" model="ir.ui.view">
+        <field name="model">product.template.attribute.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_attribute_value_id"/>
+                <field name="product_tmpl_id"/>
+                <field name="attribute_id"/>
+            </search>
+        </field>
+    </record>
     <record id="view_product_template_attribute_value" model="ir.ui.view">
         <field name="model">product.template.attribute.value</field>
         <field name="arch" type="xml">
@@ -54,6 +74,7 @@
         <field name="name">Product Template Attribute Values</field>
         <field name="res_model">product.template.attribute.value</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="search_product_template_attribute_value"/>
         <field name="view_id" ref="view_product_template_attribute_value"/>
     </record>
     <menuitem id="menu_product_template_attribute_value_action"
